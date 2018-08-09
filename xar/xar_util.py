@@ -212,7 +212,7 @@ class StagingDirectory(object):
         dst = self._normalize(dst)
         self._ensure_parent(dst)
         self._ensure_not_dst(dst)
-        shutil.copy2(src, self.absolute(dst))
+        shutil.copytree(src, self.absolute(dst), symlinks=True)
 
     def write(self, data, dst, mode, permissions):
         """Write data into dst."""
