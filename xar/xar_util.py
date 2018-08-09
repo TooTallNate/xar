@@ -253,7 +253,7 @@ class StagingDirectory(object):
     def copytree(self, src, dst=None):
         """Copy src dir into dst under the staging directory."""
         dst = self._resolve_dst_dir(dst)
-        shutil.copytree(src, self.absolute(dst))
+        shutil.copytree(src, self.absolute(dst), symlinks=True)
 
     def symlink(self, link, dst):
         """Write symbolic link to dst under the staging directory."""
